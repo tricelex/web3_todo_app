@@ -1,10 +1,18 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose;
+import dbConnect from '../lib/dbConnect'
+const { Schema, model, models } = mongoose;
+
 
 const todoSchema = new Schema({
-    title: String,
-    description: String,
-    date:{
+    title: {
+        type:String,
+        required:true
+    },
+    description:{
+        type: String,
+        required: true
+    } ,
+   createdDate:{
         type:Date,
         default: new Date()
     },
@@ -24,5 +32,22 @@ const walletSchema = new Schema({
     ]
 })
 
-const Todo = mongoose.model('Todo', todoSchema);
-const Wallet = mongoose.model('Wallet', walletSchema);
+export const Todo = models.Todo || model('Todo', todoSchema);
+export const Wallet =models.Todo || model('Wallet', walletSchema);
+
+// const test = new Todo({
+//     title: 'Test1', description: 'This is a test'
+// })
+
+// const varSave = new Todo;
+// varSave.save();
+// console.log(varSave);
+
+// const makeWallet = async () => {
+//     const wallet = new Wallet({ address:'gvh754',})
+//     const  testCase = await Todo.findOne({title: 'Test1'})
+//     wallet.todo.push(testCase);
+//     await wallet.save();
+//     console.log(wallet);
+// }
+// makeWallet();
