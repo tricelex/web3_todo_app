@@ -7,15 +7,15 @@ import { Todo, Wallet } from '../../../models/appDb';
 //   name: string
 // }
 
-// export default function handler(
-//   req: NextApiRequest,
-//   res: NextApiResponse<Data>
-// ) {
-//   res.status(200).json({ name: 'Ebuka Okoye' })
-// }
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  res.status(200).json({ name: 'Ebuka Okoye' })
+}
 
 
-export default async function handler(req: { method: string }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { name?: string; Status?: string }): void; new(): any } } }) {
+export  async function add(req: { method: string }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { name?: string; Status?: string }): void; new(): any } } }) {
   if (req.method === 'GET') {
     
     const result = await new Wallet();
