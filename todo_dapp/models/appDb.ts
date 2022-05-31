@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-import dbConnect from '../lib/dbConnect'
+import { type } from "os";
+import { any } from "prop-types";
+// import dbConnect from '../lib/dbConnect'
 const { Schema, model, models } = mongoose;
 
 
@@ -16,12 +18,18 @@ const todoSchema = new Schema({
         type:Date,
         default: new Date()
     },
-    updateDate: String
+    updateDate: Date,
+    wallet: [
+        {
+            type: Schema.Types.ObjectId,
+            ref:'Wallet'
+        }
+    ]  
 });
 
 const walletSchema = new Schema({
     address:{
-        type:String,
+        type:Schema.Types.Mixed,
         required:true
     },
     todo:[
@@ -33,7 +41,7 @@ const walletSchema = new Schema({
 })
 
 export const Todo = models.Todo || model('Todo', todoSchema);
-export const Wallet =models.Todo || model('Wallet', walletSchema);
+export const Wallet = models.Wallet || model('Wallet', walletSchema);
 
 // const test = new Todo({
 //     title: 'Test1', description: 'This is a test'
