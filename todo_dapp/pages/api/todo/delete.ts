@@ -12,9 +12,10 @@ export default async function Delete(
   try {
     const {id} = req.body;
     await dbConnect();
-    const updateTodo = await Todo.findByIdAndDelete( id, req.body);
+    const deleteTodo = await Todo.findByIdAndDelete(id);
+    res.json(deleteTodo)
 
-    console.log(updateTodo);
+    console.log(deleteTodo);
 
   }
   catch(error:any){

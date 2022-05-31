@@ -13,7 +13,7 @@ export default async function Update(
     const {id} = req.body;
     await dbConnect();
     const updateTodo = await Todo.findByIdAndUpdate( id, req.body);
-
+    console.log(req.body.id);
     console.log(updateTodo);
 
   }
