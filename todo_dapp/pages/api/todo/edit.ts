@@ -10,11 +10,16 @@ export default async function Update(
   res: NextApiResponse
 ) {
   try {
-    const {id} = req.body;
+    const {id, title, description } = req.body;
+    let vvv = {
+        title,
+        description
+    }
     await dbConnect();
-    const updateTodo = await Todo.findByIdAndUpdate( id, req.body);
-    console.log(req.body.id);
+    const updateTodo = await Todo.findByIdAndUpdate( id, vvv);
+    console.log(req.body);
     console.log(updateTodo);
+    res.status(200).json(updateTodo);
 
   }
   catch(error:any){
