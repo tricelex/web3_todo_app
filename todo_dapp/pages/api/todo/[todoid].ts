@@ -1,5 +1,5 @@
 import dbConnect from '../../../lib/dbConnect';
-import { Todo, Wallet } from '../../../models/appDb';
+import { Todo } from '../../../models/appDb';
 
 
 export default async function handler(req: { query: { pid: any; }; }, res: { end: (arg0: string) => void; }) {
