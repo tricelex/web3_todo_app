@@ -4,7 +4,8 @@ import { withUser } from '../hoc/withUser';
 import UserNotLogged from '../components/UserNotLogged';
 import HomeContainer from '../containers/HomeContainer';
 
-const Home = ({ user }) => {
+const Home = () => {
+  const user = false
   return (
     <MainLayout>
       <div className="container-wrapper">{!user ? <UserNotLogged /> : <HomeContainer />}</div>
@@ -20,8 +21,4 @@ const Home = ({ user }) => {
   );
 };
 
-Home.propTypes = {
-  user: PropTypes.object,
-};
-
-export default withUser(Home);
+export default Home;

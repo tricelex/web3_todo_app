@@ -7,11 +7,11 @@ import Footer from './footer';
 import { AuthContext } from '../contexts/auth';
 
 const MainLayout = ({ children }) => {
-  const { user, removeAuth } = useContext(AuthContext);
   return (
     <BaseLayout>
       <div id="app-container">
-        <Header user={user} onLogout={removeAuth} />
+        {/* <Header user={user} onLogout={removeAuth} /> */}
+        <Header/>
         <Page>{children}</Page>
         <Footer />
       </div>
