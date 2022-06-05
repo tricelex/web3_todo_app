@@ -66,17 +66,6 @@ function UserNotLogged() {
     }
   }
 
-
-  // const uauthConnector = new UAuthConnector({})
-
-  // uauthConnector.uauth.user().then().catch()
-  // console.log(uauth.user());
-
-
-  const onClick = () => {
-    activate(injectedConnector);
-  };
-
   useEffect(() => {
     console.log(chainId, account, active);
   });
@@ -87,20 +76,16 @@ function UserNotLogged() {
       <Grid className={classes.container}>
         <h1 className={classes.title}>You&apos;re not logged</h1>
         <img width="40%" src="/login.svg" alt="cowork" />
-        <Button
-          onClick={() => Router.push("/login")}
-          // onClick={onClick}
-          className={classes.loginButton}
-          variant="contained"
-          color="primary"
-        >
-          <span>Login</span>
-        </Button>
         <>
           {Object.keys(connectors).map(v => (
-            <button key={v} onClick={createConnectHandler(v)}>
+            <Button key={v}
+              onClick={createConnectHandler(v)}
+              className={classes.loginButton}
+              variant="contained"
+              color="primary"
+            >
               Connect to {v}
-            </button>
+            </Button>
           ))}
         </>
         <p className={classes.info}>
