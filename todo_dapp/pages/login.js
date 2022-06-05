@@ -106,4 +106,4 @@ SignIn.propTypes = {
   loading: PropTypes.bool,
 };
 
-export default withAuthWrapper(SignIn);
+export default SignIn;
